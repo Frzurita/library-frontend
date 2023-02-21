@@ -39,6 +39,10 @@ $ npm run test:e2e
 **Tip:** To run the integration tests, you will need to have the frontend and backend up.
 
 
+## Demo
+Here is the [Demo](https://aws-book-library.netlify.app/)
+
+
 ## License
 
 Nest is [MIT licensed](LICENSE).
