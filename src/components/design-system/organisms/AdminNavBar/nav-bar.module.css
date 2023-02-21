@@ -1,0 +1,44 @@
+.navbar {
+  background-color: rgb(124, 102, 212);
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  z-index: 99;
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 50rem;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  color: white;
+}
+
+.translate {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  padding: 0 0 0 2rem;
+  cursor: pointer;
+}
+
+.login-box {
+  display: flex;
+  justify-content: space-evenly;
+  width: 26rem;
+  color: white;
+}
+
+.connect {
+  padding: 2rem;
+}

@@ -1,0 +1,37 @@
+.navbar {
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  padding: 2rem 0 2rem 0;
+}
+
+.logo-box {
+  display: flex;
+  flex-grow: 1;
+  color: white;
+}
+
+.translate {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  padding: 0 0 0 2rem;
+}
+
+.login-box {
+  display: flex;
+  justify-content: space-evenly;
+  width: 26rem;
+  color: white;
+}
+
+.connect {
+  padding: 2rem;
+}

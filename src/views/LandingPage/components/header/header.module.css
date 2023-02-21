@@ -1,0 +1,73 @@
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+.header {
+  position: relative;
+  text-align: center;
+  background: linear-gradient(
+    60deg,
+    rgba(84, 58, 183, 1) 0%,
+    rgba(0, 172, 193, 1) 100%
+  );
+  color: white;
+}
+
+.header-box {
+  height: 65vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.header-tittle {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  letter-spacing: 2px;
+  font-size: 48px;
+}
+
+.logo{
+  width: 50px;
+  height: 50px;
+  fill:white;
+  padding-right:15px;
+  display:inline-block;
+  vertical-align: middle;
+}
+
+.footer {
+  position: relative;
+  height: 20vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-content {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  font-size: 14px;
+  color: #333333;
+}
+
+
+
+/*Shrinking for mobile*/
+
+@media (max-width: 768px) {
+  .waves-animation {
+    height: 40px;
+    min-height: 40px;
+  }
+  .footer {
+    height: 30vh;
+  }
+  .header-tittle {
+    font-size: 24px;
+  }
+}
