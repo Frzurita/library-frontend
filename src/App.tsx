@@ -30,10 +30,10 @@ const App = () => {
             <Route history={history} path="/" exact={false}>
               <LandingPage />
             </Route>
-            <Route history={history} path="/login" exact={false}>
+            <Route history={history} path="/login" exact={true}>
               <Login />
             </Route>
-            <Route history={history} path="/signup" exact={false}>
+            <Route history={history} path="/signup" exact={true}>
               <Signup />
             </Route>
           </Switch>
