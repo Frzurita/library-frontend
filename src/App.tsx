@@ -27,7 +27,7 @@ const App = () => {
                 <route.main />
               </Route>
             ))}
-            <Route history={history} path="/" exact={false}>
+            <Route history={history} path="/" exact={true}>
               <LandingPage />
             </Route>
             <Route history={history} path="/login" exact={true}>
