@@ -27,13 +27,13 @@ const App = () => {
                 <route.main />
               </Route>
             ))}
-            <Route history={history} path="/" exact={true}>
+            <Route history={history} path="/" exact={false}>
               <LandingPage />
             </Route>
-            <Route history={history} path="/login" exact={true}>
+            <Route history={history} path="/login" exact={false}>
               <Login />
             </Route>
-            <Route history={history} path="/signup" exact={true}>
+            <Route history={history} path="/signup" exact={false}>
               <Signup />
             </Route>
           </Switch>
