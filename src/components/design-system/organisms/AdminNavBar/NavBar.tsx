@@ -12,6 +12,10 @@ export default function NavBar() {
   const doLogout = () => {
     emptyBookList()
     logout()
+    globalThis.analytics.track('Logout', {
+      title: 'logout',
+      finishTimestamp: Date.now(),
+    })
     history.push('/')
   }
   const { updateLanguage } = useLanguage()

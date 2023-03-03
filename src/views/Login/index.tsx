@@ -29,6 +29,7 @@ export default function Signin() {
   const onSubmit = async () => {
     try {
       await signin(auth)
+      globalThis.analytics.identify(auth.email)
       history.push('/admin-panel/books')
     } catch (error: any) {
       if (error.data?.statusCode) {
