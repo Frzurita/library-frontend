@@ -1,7 +1,7 @@
 import { AxiosInstance } from 'axios'
+import jwtDecode from 'jwt-decode'
 import { Auth } from '../../types/auth'
-import { Book } from '../../types/book'
-import { Credentials } from '../../types/credentials'
+import { Credentials, JWTPayload } from '../../types/credentials'
 import {
   httpService,
   Response,
@@ -18,26 +18,29 @@ export class AuthRepositoryHTTP implements AuthRepository {
     private cacheRepository: CacheRepository
   ) { }
 
-  async signup(auth: Auth): Response<Credentials> {
+  async signup(auth: Auth): Promise<string> {
     const response = await this.httpService.post<
       Auth,
       ResponseBody<Credentials>
     >('auth/signup', auth)
 
-    this.handleUserResponse(response.data)
+    const payload: JWTPayload = this.handleUserResponse(response.data)
 
-    return response
+    return payload.id
   }
 
-  async signin(auth: Auth): Response<Credentials> {
+  async signin(auth: Auth): Promise<string> {
     const response = await this.httpService.post<
       Auth,
       ResponseBody<Credentials>
     >('auth/signin', auth)
 
-    this.handleUserResponse(response.data)
+    const payload: JWTPayload = this.handleUserResponse(response.data)
 
-    return response
+    const credentials: { id: string } = jwtDecode(response.data.accessToken)
+    console.log(credentials)
+
+    return credentials.id
   }
 
   logout(): void {
@@ -45,9 +48,13 @@ export class AuthRepositoryHTTP implements AuthRepository {
     setToken(null)
   }
 
-  private handleUserResponse(credentials: Credentials): void {
+  private handleUserResponse(credentials: Credentials): JWTPayload {
     this.cacheRepository.setItem(CREDENTIALS_KEY, credentials.accessToken)
     setToken(credentials.accessToken)
+
+    const payload: JWTPayload = jwtDecode(credentials.accessToken)
+
+    return payload
   }
 }
 

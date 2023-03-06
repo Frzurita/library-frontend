@@ -28,8 +28,9 @@ export default function Signin() {
 
   const onSubmit = async () => {
     try {
-      await signin(auth)
-      globalThis.analytics.identify(auth.email)
+      const id = await signin(auth)
+      globalThis.analytics.identify(id)
+      globalThis.analytics.track('login_library', { timestamp: Date.now() })
       history.push('/admin-panel/books')
     } catch (error: any) {
       if (error.data?.statusCode) {

@@ -30,7 +30,10 @@ export default function Singup() {
 
   const onSubmit = async () => {
     try {
-      await signup(auth)
+      const id = await signup(auth)
+      globalThis.analytics.identify(id)
+      globalThis.analytics.track('signup_library', { timestamp: Date.now() })
+
       history.push('/admin-panel/books')
     } catch (error: any) {
       if (error.data?.statusCode) {

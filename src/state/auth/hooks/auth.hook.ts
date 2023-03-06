@@ -21,14 +21,17 @@ const useAuth = () => {
     }
   }, [])
 
-  const signup = async (auth: Auth) => {
-    await authRepositoryHttp.signup(auth)
+  const signup = async (auth: Auth): Promise<string> => {
+    const id = await authRepositoryHttp.signup(auth)
     setIsAuth(true)
+
+    return id
   }
 
-  const signin = async (auth: Auth) => {
-    await authRepositoryHttp.signin(auth)
+  const signin = async (auth: Auth): Promise<string> => {
+    const id = await authRepositoryHttp.signin(auth)
     setIsAuth(true)
+    return id
   }
 
   const logout = () => {
